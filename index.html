@@ -3,16 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Icon -->
+    <link rel="shortcut icon" href="https://student.develhope.co/favicon.ico" />
+    <!-- Title -->
     <title>To-do-list</title>
+    <!-- File CSS -->
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <div>
-      <h1>To-do List</h1>
-      <input type="text" placeholder="..." />
-      <button onclick="addProduct()">Aggiungi</button>
-      <ul></ul>
+    <div class="container">
+      <div class="bg-img">
+        <img src="/bg-img.jpg" alt="Coding">
+      </div>
+      <div class="to-do-list">
+        <div class="container-section">
+          <h1>To-do List</h1>
+          <input type="text" placeholder="..." />
+          <button id="addItem" onclick="addProduct()">Aggiungi</button>
+        </div>
+        <div class="container-ul">
+          <ul></ul>
+        </div>
+      </div>
     </div>
-    <script src="./index.js"></script>
+    <script src="/index.js"></script>
   </body>
 </html>
