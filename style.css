@@ -69,6 +69,7 @@ a {
   top: 0;
   left: 0;
   z-index: 0;
+  filter: blur(10px);
 }
 
 .container-section {
@@ -79,6 +80,10 @@ a {
   gap: 20px;
 }
 
+.container-section div{
+  display: flex;
+  gap: 10px;
+}
 /* To do list */
 .to-do-list {
   z-index: 999;
@@ -94,12 +99,14 @@ a {
   border-radius: 4px;
 }
 
+/* Title To-Do List */
 h1 {
   font-size: 6rem;
   color: whitesmoke;
   margin-bottom: 0;
 }
 
+/* Input To-Do List*/
 input[type="text"]{
   padding: 10px;
   width: 100%;
@@ -110,6 +117,7 @@ input[type="text"]{
   color: white;
 }
 
+/* Button to add To-Do */
 #addItem {
   border: none;
   padding: 10px;
@@ -125,6 +133,7 @@ input[type="text"]{
   background-color: rgb(167, 122, 9);
 }
 
+/* Container To-Do */
 ul {
   display: flex;
   flex-direction: column;
@@ -138,6 +147,8 @@ ul li {
   border-bottom: 1px solid #ffffff;
   gap: 20px;
   padding-bottom: 10px;
+  transition: 0.3s;
+  transform: scale(0);
   animation: liAnim 1s ease 0s 1 normal forwards;
 }
 
