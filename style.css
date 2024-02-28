@@ -80,7 +80,7 @@ a {
   gap: 20px;
 }
 
-.container-section div{
+.container-section div {
   display: flex;
   gap: 10px;
 }
@@ -106,40 +106,70 @@ h1 {
   margin-bottom: 0;
 }
 
-/* Input To-Do List*/
-input[type="text"]{
-  padding: 10px;
-  width: 100%;
-  font-size: 30px;
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.188);
-  background-color: goldenrod;
-  color: white;
+/* SECTION INPUT */
+.input-container {
+  display: flex;
+  background: white;
+  border-radius: 1rem;
+  background: linear-gradient(45deg, #c5c5c5 0%, #ffffff 100%);
+  padding: 0.3rem;
+  gap: 0.3rem;
 }
 
-/* Button to add To-Do */
-#addItem {
+.input-container input {
+  border-radius: 0.8rem 0 0 0.8rem;
+  background: #e8e8e8;
+  box-shadow: inset 13px 13px 10px #dcdcdc, inset -13px -13px 10px #f4f4f4;
+  width: 100%;
+  flex-basis: 75%;
+  padding: 1rem;
   border: none;
-  padding: 10px;
-  background-color: goldenrod;
+  border-left: 2px solid #4998ff;
+  color: #5e5e5e;
+  transition: all 0.2s ease-in-out;
+}
+
+.input-container input:focus {
+  border-left: 2px solid #4998ff;
+  outline: none;
+  box-shadow: inset 13px 13px 10px #bff0fa, inset -13px -13px 10px #f4f4f4;
+}
+
+.input-container button {
+  flex-basis: 25%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #bff0fa 0%, #4998ff 100%);
   font-weight: 900;
-  font-size: 30px;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
   color: white;
-  border-radius: 15px;
+  border: none;
+  width: 100%;
+  border-radius: 0 1rem 1rem 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.input-container button:hover {
+  background: linear-gradient(135deg, #bff0fa 0%, #4998ffc4 100%);
   cursor: pointer;
 }
 
-#addItem:active {
-  background-color: rgb(167, 122, 9);
+@media (max-width: 500px) {
+  .input-container {
+    flex-direction: column;
+  }
+
+  .input-container input {
+    border-radius: 0.8rem;
+  }
+
+  .input-container button {
+    padding: 1rem;
+    border-radius: 0.8rem;
+  }
 }
 
 /* Container To-Do */
-ul {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
 ul li {
   display: flex;
   justify-content: space-between;
@@ -147,18 +177,18 @@ ul li {
   border-bottom: 1px solid #ffffff;
   gap: 20px;
   padding-bottom: 10px;
-  transition: 0.3s;
-  transform: scale(0);
-  animation: liAnim 1s ease 0s 1 normal forwards;
+  animation: toDo 1s ease-in-out 0s 1 normal forwards;
 }
 
-@keyframes liAnim {
+@keyframes toDo {
   0% {
-    transform: scaleY(0.4);
+    opacity: 0;
+    transform: translateY(-50px);
   }
 
   100% {
-    transform: scaleY(1);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -175,14 +205,130 @@ input[type="checkbox"] {
   margin: 0;
 }
 
-.delete {
-  border: none;
-  background-color: red;
-  font-size: 30px;
-  color: white;
+.button {
   width: 50px;
   height: 50px;
-  border-radius: 100%;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
   cursor: pointer;
-  text-align: center;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.button:hover .svgIcon {
+  width: 50px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+}
+
+.button::before {
+  position: absolute;
+  top: -20px;
+  content: "Delete";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.button:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(30px);
+  transition-duration: 0.3s;
+}
+
+/* CHECKBOX CSS */
+.checkbox-con {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.checkbox-con li {
+  width: 100%;
+}
+
+.checkbox-con input[type="checkbox"] {
+  appearance: none;
+  width: 40px;
+  height: 22px;
+  border: 2px solid #ff0000;
+  border-radius: 20px;
+  background: #f1e1e1;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.checkbox-con input[type="checkbox"]::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: rgba(234, 7, 7, 0.5);
+  border: 2px solid #ea0707;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(13%, 15%);
+  transition: all 0.3s ease-in-out;
+}
+
+.checkbox-con input[type="checkbox"]::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='://www.w3.org/2000/svg' width='23' height='23' viewBox='0 0 23 23' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.55021 5.84315L17.1568 16.4498L16.4497 17.1569L5.84311 6.55026L6.55021 5.84315Z' fill='%23EA0707' fill-opacity='0.89'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.1567 6.55021L6.55012 17.1568L5.84302 16.4497L16.4496 5.84311L17.1567 6.55021Z' fill='%23EA0707' fill-opacity='0.89'/%3E%3C/svg%3E");
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+
+.checkbox-con input[type="checkbox"]:checked {
+  border: 2px solid #02c202;
+  background: #e2f1e1;
+}
+
+.checkbox-con input[type="checkbox"]:checked::before {
+  background: rgba(2, 194, 2, 0.5);
+  border: 2px solid #02c202;
+  transform: translate(133%, 13%);
+  transition: all 0.3s ease-in-out;
+}
+
+.checkbox-con input[type="checkbox"]:checked::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='13' viewBox='0 0 15 13' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.8185 0.114533C15.0314 0.290403 15.0614 0.605559 14.8855 0.818454L5.00187 12.5L0.113036 6.81663C-0.0618274 6.60291 -0.0303263 6.2879 0.183396 6.11304C0.397119 5.93817 0.71213 5.96967 0.886994 6.18339L5.00187 11L14.1145 0.181573C14.2904 -0.0313222 14.6056 -0.0613371 14.8185 0.114533Z' fill='%2302C202' fill-opacity='0.9'/%3E%3C/svg%3E");
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+
+.checkbox-con label {
+  margin-left: 10px;
+  cursor: pointer;
+  user-select: none;
 }
