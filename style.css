@@ -101,7 +101,7 @@ a {
 
 /* Title To-Do List */
 h1 {
-  font-size: 6rem;
+  font-size: clamp(20px, 4vw, 60px);
   color: whitesmoke;
   margin-bottom: 0;
 }
@@ -177,7 +177,7 @@ ul li {
   border-bottom: 1px solid #ffffff;
   gap: 20px;
   padding-bottom: 10px;
-  animation: toDo 1s ease-in-out 0s 1 normal forwards;
+  animation: toDo 0.5s ease-in-out 0s 1 normal forwards;
 }
 
 @keyframes toDo {
@@ -198,7 +198,7 @@ ul li {
 
 li label {
   color: white;
-  font-size: 30px;
+  font-size: clamp(18px, 4vw, 30px);
 }
 
 input[type="checkbox"] {
