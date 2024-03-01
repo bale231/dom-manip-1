@@ -69,7 +69,6 @@ a {
   top: 0;
   left: 0;
   z-index: 0;
-  filter: blur(10px);
 }
 
 .container-section {
